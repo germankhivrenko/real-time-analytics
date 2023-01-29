@@ -8,11 +8,11 @@ const schemas = [
     multiplier: 1,
   },
   {
-    id: 'schema_2'
+    id: 'schema_2',
     multiplier: 2,
   },
   {
-    id: 'schema_3'
+    id: 'schema_3',
     multiplier: 3,
   },
 ]
@@ -35,11 +35,11 @@ const generateTime = (size) => Math.floor(
 )
 const generateRequestMessage = () => {
   const schema = schemas[getRandomInt(0, schemas.length)]
-  const mult = schema.multiplier
+  const mult = schema.multiplier + 1
 
-  const requestSize = getRandomInt(1024 ** mult, 10 * 1024 ** mult)
+  const requestSize = getRandomInt(1024, 10 * 1024) * 10 ** mult
   const requestSentTime = generateTime(requestSize)
-  const responseSize = getRandomInt(1024 ** mult, 5 * 1024 ** mult)
+  const responseSize = getRandomInt(1024, 5 * 1024) * 10 ** mult
   const responseDownloadTime = generateTime(responseSize)
 
   return {
